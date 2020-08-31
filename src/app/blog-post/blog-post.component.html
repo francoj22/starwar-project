@@ -1,0 +1,43 @@
+<section class="clean-block clean-blog-list dark">
+  <div class="container">
+    <img src="../../assets/img/scenery/starwar.jpg">
+      <div class="block-heading">
+          <h2 class="text-info">Star War</h2 >
+          <p>StarShips</p>
+      </div>
+      <div class="block-content">
+          <div class="clean-blog-post">
+              <div class="row">
+                <section class="clean-block clean-form">
+                  
+                    <div class="container">
+                        <div>
+                          <form id="formStarShips" name='formStarShips' #formStarShipData="ngForm" (ngSubmit)="searchMGLT(formStarShipData)">
+                             <div class="form-group">
+                              <label for="name">MGTL</label>
+                              <input type="text" class="form-control" id="mglt"
+                                     required
+                                     [(ngModel)]="mgltValue" name="mglt"
+                                     #name="ngModel">
+                              <div [hidden]="name.valid || name.pristine"
+                                   class="alert alert-danger">
+                                MGLT is required
+                              </div>
+                            </div>
+                            <br>
+                            <br>         
+                            <button type="submit" class="btn btn-primary btn-block" [disabled]="!formStarShipData.form.valid">Search</button>
+                          </form>
+                        </div>
+                    </div>
+                  </section>
+                  <div class="col-12 blog-padding" *ngFor="let startship of starships">
+                      <h2>MGLT name: {{startship.name}}</h2>
+                      <h3>MGLT {{startship.MGLT}}</h3>
+                      <p>Stops: {{startship.stops}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
